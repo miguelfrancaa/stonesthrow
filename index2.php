@@ -30,22 +30,13 @@
 ?>
 	<main>
 		<ul class="artistsList">
-			<li class="artists aloeBlacc"><a href="">Aloe Blacc</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Benny Sings</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Charizma</a></li><br><br><br><br><br><br>
-			<li class="artists jdilla"><a href="jdilla.html">J Dilla</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Johnwayne</a></li><br><br><br><br><br><br>
-			<li class="artists knxwledge"><a href="">Knxwledge</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Madlib</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">MED</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Oh No</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Quasimoto</a></li><br><br><br><br><br><br>
-			<li class="artists"><a href="">Teeth Agency</a></li><br><br><br><br><br><br>
-
+<?php foreach ($artists as $artist) {
+				echo'<li class="artists '.strtolower(trim(str_replace(" ", "", $artist["name"]))).'"><a href="">'.$artist["name"].'</a></li><br><br><br><br><br><br>';
+			};
+?>
 		</ul>
 	<div class="fundartist"></div>
 	</main>
-
 
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>

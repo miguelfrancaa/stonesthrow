@@ -10,33 +10,6 @@ $(".xis").click(
   }
   )
 
-$(".jdilla").hover(
-  function () {
-    $(".fundartist").addClass('jdillafundo');
-  }, 
-  function () {
-    $(".fundartist").removeClass('jdillafundo');
-  }
-  );
-
-$(".knxwledge").hover(
-  function () {
-    $(".fundartist").addClass('knxwledgefundo');
-  }, 
-  function () {
-    $(".fundartist").removeClass('knxwledgefundo');
-  }
-  );
-
-$(".aloeBlacc").hover(
-  function () {
-    $(".fundartist").addClass('aloeBlaccfundo');
-  }, 
-  function () {
-    $(".fundartist").removeClass('aloeBlaccfundo');
-  }
-  );
-
 //
 
 let numberInputs = document.getElementsByClassName("formInputs").length + 1;

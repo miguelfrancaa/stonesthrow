@@ -589,6 +589,12 @@ font-size: 32px;
   height: 100%;
 }
 
+.videoTitle{
+	font-weight: 400;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
 .aberto{
 	display: none;
 }
