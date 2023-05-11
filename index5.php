@@ -1,5 +1,15 @@
 <?php
 	require("includes/config.php");
+
+	$query = $db->prepare("
+		SELECT name, youtube_link
+		FROM videos
+		ORDER BY video_id DESC
+		");
+
+	$query->execute();
+
+	$videos = $query->fetchAll( PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,40 +29,23 @@
 ?>
 	<main>
 		<div class="container noAbsolute">
-			<div class="row newVideo">
+
+			<?php
+			foreach ($videos as $video) {
+				echo '<div class="row newVideo">
 				<div class="col-md-2 col-sm-2 col-xs-2"></div>
 				<div class="col-md-8 col-sm-8 col-xs-8">
 					<div class="row">
-					J Dilla - Nothing Like This</div>
+					'.$video["name"].'</div>
 					<div class="row">
 						<div class="video-container">
-					<iframe class="videoYoutube" src="https://www.youtube.com/embed/_ncSt5xC8Uk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+					<iframe class="videoYoutube" src="https://www.youtube.com/embed/'.$video["youtube_link"].'" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
 				</div>
 				</div>
 				<div class="col-md-2 col-sm-2 col-xs-2"></div>
-			</div>
-			<div class="row newVideo">
-				<div class="col-md-2 col-sm-2 col-xs-2"></div>
-				<div class="col-md-8 col-sm-8 col-xs-8">
-					<div class="row">
-					Quasimoto - Catchin da Vibe</div>
-					<div class="row">
-						<div class="video-container">
-					<iframe class="videoYoutube"  src="https://www.youtube.com/embed/TVbrpJ13emo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
-				</div>
-				<div class="col-md- col-sm-2 col-xs-2"></div>
-			</div>
-			<div class="row newVideo">
-				<div class="col-md-2 col-sm-2 col-xs-2"></div>
-				<div class="col-md-8 col-sm-8 col-xs-8">
-					<div class="row">
-					Sudan Archives - Time</div>
-					<div class="row">
-						<div class="video-container">
-					<iframe class="videoYoutube" src="https://www.youtube.com/embed/ebPvq6ebbdQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div></div>
-				</div>
-				<div class="col-md-2 col-sm-2 col-xs-2"></div>
-			</div>
+			</div>';
+			}
+		?>
 		</div>
 	</main>
 

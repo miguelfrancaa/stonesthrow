@@ -1,5 +1,14 @@
 <?php
 	require("includes/config.php");
+
+	$query = $db->prepare("
+		SELECT local, event_date, mode, image, link
+		FROM events
+		");
+
+	$query->execute();
+
+	$news = $query->fetchAll( PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
