@@ -1,3 +1,6 @@
+<?php
+	require("includes/config.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -5,56 +8,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>STONES THROW</title>
 		<meta name="keywords" content="STONES THROW">
+		<link rel="icon" href="img/logost.ico">
 		<meta name="description" content="stones throw, records, hiphop, music, alternative, quasimoto, mfdoom, underground, label">
 		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
 	</head>
-	<body>
-	<header>
-		<div class="container header">
-			<div class="row">
-				<div class="col-md-5 col-xs-12 col-sm-12">
-					<a href="index.html"><div class="logo"><img src="img/logost.png"></div></a>
-				</div>
-				<nav class="col-md-7 menus disappear">
-					<a href="index2.html"><div class="col-md-2 pags">ARTISTS</div></a>
-					<a href="index3.html"><div class="col-md-2 pags">SHOP</div></a>
-					<a href="index6.html"><div class="col-md-2 pags">NEWS</div></a>
-					<a href="index4.html"><div class="col-md-2 pags">EVENTS</div></a>
-					<a href="index5.html"><div class="col-md-2 pags">VIDEOS</div></a>
-					<div class="col-md-2 pags">
-						<a href="login.html"><div class="col-md-6 fa fa-user"></div></a>
-						<a><div class="col-md-6 fa fa-shopping-cart"></div></a>
-					</div>
-				</nav>
-			</div>
-			<a><div class="hamb fechado appear">
-				<div class="bar bar1"></div>
-				<div class="bar bar2"></div>
-				<div class="bar bar3"></div>
-			</div></a>
-		</div>
-		<div class="container popup aberto">
-			<div class="row">
-			<a><div class="xis">
-				<div class="barx bar4"></div>
-				<div class="barx bar5"></div>
-			</div></a>
-			</div>
-			<div class="menusxis">
-				<nav>
-					<a class="menuxis" href="index2.html">ARTISTS</a><br>
-					<a class="menuxis" href="index3.html">SHOP</a><br>
-					<a class="menuxis" href="index6.html">NEWS</a><br>
-					<a class="menuxis" href="index4.html">EVENTS</a><br>
-					<a class="menuxis" href="index5.html">VIDEOS</a><br>
-					<a class="menuxis" href="login.html">ACCOUNT</a><br>
-					<a class="menuxis" href="cart.html">CART</a>
-				</nav>
-			</div>
-		</div>
-	</header>
+<?php
+	require("includes/header.php");
+?>
 	<main>
 		<div class="container noAbsolute">
 			<div class="row rela">

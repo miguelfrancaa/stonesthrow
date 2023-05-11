@@ -1,5 +1,16 @@
 <?php
 	require("includes/config.php");
+
+	$query = $db->prepare("
+		SELECT name, description_photo
+		FROM artists
+		ORDER BY name
+		");
+
+	$query->execute();
+
+	$artists = $query->fetchAll( PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
