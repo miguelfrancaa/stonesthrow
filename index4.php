@@ -2,13 +2,14 @@
 	require("includes/config.php");
 
 	$query = $db->prepare("
-		SELECT local, event_date, mode, image, link
+		SELECT events.local, events.event_date, events.mode, events.link, artists.name
 		FROM events
+        INNER JOIN artists USING (artist_id)
 		");
 
 	$query->execute();
 
-	$news = $query->fetchAll( PDO::FETCH_ASSOC);
+	$events = $query->fetchAll( PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,27 +29,17 @@
 ?>
 	<main>
 		<div class="container noAbsolute2">
-			<div class="row evento space">
-				<span class="events"><span class="artista">Los Retros</span><br>
-				05/05<br>
-				Free Livestream<br>
-				Worldwide<br></span>
-				<button class="evento eventDetails">DETAILS</button>
-			</div>
-			<div class="row evento space">
-				<span class="events"><span class="artista">Mndsgn</span><br>
-				06/23<br>
-				Live on KEXP<br>
-				Worldwide<br></span>
-				<button class="evento eventDetails">DETAILS</button>
-			</div>
-			<div class="row evento space">
-				<span class="events"><span class="artista">Knxwledge</span><br>
-				23/11<br>
-				Concert<br>
-				Manchester<br></span>
-				<button class="evento eventDetails">DETAILS</button>
-			</div>
+			<?php
+				foreach($events as $event){
+					echo "<div class='row evento space'>
+						<span class='events'><span class='artista'>".$event["name"]."</span><br> 
+						".$event["event_date"]."<br>
+						".$event["mode"]."<br>
+						".$event["local"]."<br></span>
+						<a target=_blank href=".$event["link"]."><button class='evento eventDetails'>DETAILS</button></a>
+						</div>";
+				}
+			?>
 		</div>
 	</main>
 
