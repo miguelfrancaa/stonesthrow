@@ -66,54 +66,9 @@ ul{
 	padding-left: 0px;
 }
 
-.jdillafundo{
-	position: fixed;
-	width: 100%;
-	height: 100vh;
-	z-index: -3;
-	background-image: url('../img/jdilla.png');
-	 -webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-  	background-position: center;
-  animation-name: artists;
-  animation-duration: 0.5s;
-}
-
-.knxwledgefundo{
-	position: fixed;
-	width: 100%;
-	height: 100vh;
-	z-index: -3;
-	background-image: url('../img/knxwledge.png');
-	 -webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-  	background-position: center;
-  animation-name: artists;
-  animation-duration: 0.5s;
-}
-
 @keyframes artists{
 	from {opacity: 0;}
   to {opacity: 1;}
-}
-
-.aloeBlaccfundo{
-	position: fixed;
-	width: 100%;
-	height: 100vh;
-	z-index: -3;
-	background-image: url('../img/aloeblacc.png');
-	 -webkit-background-size: cover;
-  	-moz-background-size: cover;
-  	-o-background-size: cover;
-  	background-size: cover;
-  	background-position: center;
-  animation-name: artists;
-  animation-duration: 0.5s;
 }
 
 .header{
