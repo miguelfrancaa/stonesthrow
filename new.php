@@ -1,6 +1,5 @@
 <?php
 	require("includes/config.php");
-	setlocale(LC_TIME, "pt_PT", "Portuguese_Portugal");
 
 	$query = $db->prepare("
 		SELECT new_id, title, content, content2, image, created_at, video

@@ -27,6 +27,12 @@ body{
 
 a{
 	color: black;
+	text-decoration: none;
+}
+
+a:hover{
+	text-decoration: none;
+	color: black;
 }
 
 ul{
@@ -709,6 +715,16 @@ font-size: 32px;
 	padding-bottom: 60px;
 }
 
+.error{
+	color: #FE5724;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+	font-weight: 800;
+	font-size: 50px;
+	text-align: center;
+}
 
 /* <= 1440 HD Ready */
 @media screen and (max-width:1440px){}

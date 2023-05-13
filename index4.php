@@ -33,7 +33,8 @@
 				foreach($events as $event){
 					echo "<div class='row evento space'>
 						<span class='events'><span class='artista'>".$event["name"]."</span><br> 
-						".$event["event_date"]."<br>
+						
+						".date("d F Y",strtotime($event["event_date"]))."<br>
 						".$event["mode"]."<br>
 						".$event["local"]."<br></span>
 						<a target=_blank href=".$event["link"]."><button class='evento eventDetails'>DETAILS</button></a>

@@ -44,7 +44,12 @@
 <div class="newBack" style="background-image: url('img/news/<?= $news[0]["imageCarroussel"] ?>');">
 	<div class="newText disappear" style="top: <?= $news[0]["top"] ?>%; left: <?= $news[0]["leftpx"] ?>px;">
 		<h2 class="newTitle">
-			<?= $news[0]["title"] ?>
+			<a href="
+<?php
+					echo'new.php?new_id='.$news[0]["new_id"].''
+?>
+			"><?= $news[0]["title"] ?>
+			</a>
 		</h2>
 		<p class="newBig">
 			“‘Alas Alice’ is a tale of love confounded,” says Yeofi. “It’s an endless cycle of going back and forth, in and out, round and around.” Mixing rich harmony, confessional lyrics, dreamy strings and Yeofi’s epic vocals, ‘Alas Alice’ is the duo’s first release since their debut album, Six Rocks, on Stones Throw in 2017.
@@ -63,7 +68,12 @@
 <div class="newBack" style="background-image: url('img/news/<?= $news[1]["imageCarroussel"] ?>');">
 	<div class="newText disappear" style="top: <?= $news[1]["top"] ?>%; left: <?= $news[1]["leftpx"] ?>px; position: absolute;">
 		<h2 class="newTitle">
-			<?= $news[1]["title"] ?>
+		<a href="
+<?php
+					echo'new.php?new_id='.$news[1]["new_id"].''
+?>
+			"><?= $news[1]["title"] ?>
+			</a>
 		</h2>
 		<p class="newBig">
 			Today is the 17th anniversary of the release of Madvillainy and the vinyl currently is on backorder, along with a few other titles. Our Madvillain by records by MF DOOM & Madlib have been in print ever since their original release.
@@ -77,7 +87,12 @@
 <div class="newBack" style="background-image: url('img/news/<?= $news[2]["imageCarroussel"] ?>');">
 	<div class="newText disappear" style="top: <?= $news[2]["top"] ?>%; left: <?= $news[2]["leftpx"] ?>px; position: absolute;">
 		<h2 class="newTitle">
-			<?= $news[2]["title"] ?>
+			<a href="
+<?php
+					echo'new.php?new_id='.$news[2]["new_id"].''
+?>
+			"><?= $news[2]["title"] ?>
+			</a>
 		</h2>
 		<p class="newBig">
 			Welcome Maylee Todd to Stones Throw. She’s a musician, performance artist, and producer based in Toronto, whose themes are inspired by science fiction and conceptual art.
@@ -91,11 +106,15 @@
 <div class="newBack" style="background-image: url('img/news/<?= $news[3]["imageCarroussel"] ?>');">
 	<div class="newText disappear" style="top: <?= $news[3]["top"] ?>%; left: <?= $news[3]["leftpx"] ?>px; position: absolute;">
 		<h2 class="newTitle">
-			<?= $news[3]["title"] ?>
+			<a href="
+<?php
+					echo'new.php?new_id='.$news[3]["new_id"].''
+?>
+			"><?= $news[3]["title"] ?>
+			</a>
 		</h2>
 		<p class="newBig">
-			When we signed Automatic last year they had this fantastic 6-track demo tape. It’s available today for Bandcamp Friday.
-			The band is: Izzy Glaudini - synths, vocals, Lola Dompé - drums, vocals, and Halle Saxon - bass, vocals.
+			Welcome Maylee Todd to Stones Throw. She’s a musician, performance artist, and producer based in Toronto, whose themes are inspired by science fiction and conceptual art.
 		</p>
 	</div>
 </div>
