@@ -1,6 +1,12 @@
 <?php
 	require("includes/config.php");
 
+	if(!isset($_GET["new_id"]) || !is_numeric($_GET["new_id"])) {
+		http_response_code(400);
+		include('400.php');
+		die();
+	}
+
 	$query = $db->prepare("
 		SELECT new_id, title, content, content2, image, created_at, video
 		FROM news
@@ -12,6 +18,12 @@
 	]);
 
 	$news = $query->fetch( PDO::FETCH_ASSOC);
+
+	if(empty($news)) {
+		http_response_code(404);
+		include('404.php');
+		die();
+	}
 
 ?>
 <!DOCTYPE html>

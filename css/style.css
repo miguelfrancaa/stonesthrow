@@ -710,9 +710,32 @@ font-size: 32px;
 
 .footer{
 	background-color: #212121;
-	color: white;
+	color: whitesmoke;
 	padding-top: 60px;
 	padding-bottom: 60px;
+}
+
+.footLogo{
+	filter: invert(0.8);
+	height: 100px;
+}
+
+.footMenu a li{
+	padding-bottom: 20px;
+	color: whitesmoke;
+	font-weight: 100;
+}
+
+.contacts{
+	font-weight: 100;
+}
+
+.contacts li{
+	padding-bottom: 20px;
+}
+
+.contacts a{
+	color: whitesmoke;
 }
 
 .error{
