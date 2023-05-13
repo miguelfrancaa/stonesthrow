@@ -726,6 +726,22 @@ font-size: 32px;
 	text-align: center;
 }
 
+.err{
+	max-height: 100vh;
+}
+
+.imgError{
+	position: absolute;
+	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+  	background-position: center;
+  opacity: 0.5;
+  z-index: -10;
+  overflow: hidden;
+}
+
 /* <= 1440 HD Ready */
 @media screen and (max-width:1440px){}
 @media screen and (max-width:1200px){

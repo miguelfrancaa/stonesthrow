@@ -1,5 +1,18 @@
 <?php
 	require("includes/config.php");
+
+	require("includes/config.php");
+
+	$query = $db->prepare("
+		SELECT photo
+		FROM artists
+		ORDER BY name
+		");
+
+	$query->execute();
+
+	$photoArtists = $query->fetchAll( PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,13 +31,38 @@
 	require("includes/header.php");
 ?>
 	<main>
-	<div class="container">
-		<div class="error">ERROR 404:<br> NOT FOUND<br> : /</div>
+	<div class="container err">
+		<div class="error">ERROR 404:<br> NOT FOUND</div>
+		<div class="imgError"></div>
 	</div>
 	</main>
 
 	<script src="js/jquery-3.6.0.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		let img404 = [
+		<?php
+			foreach ($photoArtists as $photoArtist) {
+				echo "
+					'".$photoArtist["photo"]."',
+				";
+			}
+		?>
+		];
+
+		let chooseImage = Math.floor(Math.random() * img404.length);
+		let heightErrImage = parseFloat(Math.random() * (100 - 30) + 30).toFixed(0);
+		let widthErrImage = parseFloat(Math.random() * (100 - 30) + 30).toFixed(0);
+		let topErrImage = parseFloat(Math.random() * (90 - 10) + 10).toFixed(0);
+		let leftErrImage = parseFloat(Math.random() * (40 - 0) + 0).toFixed(0);
+
+		$(".imgError").css("top", topErrImage + '%');
+		$(".imgError").css("left", leftErrImage + '%');
+		$(".imgError").css("height", heightErrImage+ 'vh');
+		$(".imgError").css("width", widthErrImage+ '%');
+		$(".imgError").css("background-image", 'url(img/artists/'+img404[chooseImage]+')');
+
+	</script>
 	</body>
 </html>
