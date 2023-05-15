@@ -8,8 +8,9 @@
 	}
 
 	$query = $db->prepare("
-		SELECT new_id, title, content, content2, image, created_at, video
+		SELECT news.new_id, news.title, news.content, news.content2, news.image, news.created_at, news.video, artists.name
 		FROM news
+		LEFT JOIN artists USING (artist_id)
 		WHERE new_id = ?
 		");
 
