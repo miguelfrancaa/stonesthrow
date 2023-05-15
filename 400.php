@@ -32,8 +32,10 @@
 ?>
 	<main>
 	<div class="container err">
+		<div class="rel">
 		<div class="error">ERROR 400:<br> BAD REQUEST</div>
 		<div class="imgError"></div>
+		</div>
 	</div>
 	</main>
 

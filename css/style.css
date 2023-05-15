@@ -18,7 +18,7 @@
 
 
 *{box-sizing: border-box;}
-html,body{padding: 0px;margin: 0px;}
+html,body{padding: 0px;margin: 0px; overflow: hidden;}
 img{max-width: 100%;}
 
 body{
@@ -751,6 +751,14 @@ font-size: 32px;
 
 .err{
 	max-height: 100vh;
+}
+
+.rel{
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	top: 0px;
+	left: 0px;
 }
 
 .imgError{
