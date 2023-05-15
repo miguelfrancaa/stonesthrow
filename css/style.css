@@ -18,7 +18,7 @@
 
 
 *{box-sizing: border-box;}
-html,body{padding: 0px;margin: 0px; overflow: hidden;}
+html,body{padding: 0px;margin: 0px;}
 img{max-width: 100%;}
 
 body{
@@ -429,18 +429,18 @@ font-weight: 100;
 }
 
 .vin{
-	height: 400px;
+	height: 360px;
 }
 
 .rela{
 	position: relative;
-	height: 450px;
-	margin-bottom: 90px;
+	height: 350px;
+	margin-bottom: 150px;
 }
 
 .relaa{
 	position: relative;
-	height: 450px;
+	height: 350px;
 	margin-bottom: 90px;
 }
 
@@ -838,7 +838,13 @@ font-size: 32px;
 	position: static;
 }
 
+.price{
+	top: 190px;
+}
 
+.relaa{
+	height: 290px;
+}
 }
 /* <= 768 iPad Portrait */
 @media screen and (max-width:768px){
@@ -878,11 +884,6 @@ font-size: 32px;
 
 .logo{
 	width: 120px;
-}
-
-.relaa{
-	height: 400px;
-	margin-bottom: 90px;
 }
 
 .vin{

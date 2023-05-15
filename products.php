@@ -1,14 +1,6 @@
 <?php
 	require("includes/config.php");
 
-	$query = $db->prepare("
-		SELECT *
-		FROM categories
-		");
-
-	$query->execute([]);
-
-	$categories = $query->fetchAll();
 
 	if(!isset($_GET["subcategory_id"]) || !is_numeric($_GET["subcategory_id"])) {
 		http_response_code(400);
@@ -17,18 +9,19 @@
 	}
 
 	$query = $db->prepare("
-		SELECT *
-		FROM categories
-		WHERE parent_id = ?
+		SELECT products.item, products.description, products.image, products.price, artists.name, artists.artist_id
+		FROM products
+		LEFT JOIN artists USING (artist_id)
+		WHERE category_id = ?
 		");
 
 	$query->execute([
-		$_GET["subcategory_id"]
+		$_GET['subcategory_id']
 	]);
 
-	$subcategories = $query->fetchAll();
+	$products = $query->fetchAll( PDO::FETCH_ASSOC);
 
-	if(empty($subcategories)) {
+	if(empty($products)) {
 		http_response_code(404);
 		include('404.php');
 		die();
@@ -52,20 +45,21 @@
 	require("includes/header.php");
 ?>
 	<main>
-		<div class="container">
-			<div class="row shopCat">
-				<div class="col-md-6 col-sm-12 col-xs-12 shopCat2 disappear">
-					<a href="music.html"><h2 class="name"><?= $categories[$_GET["subcategory_id"]-1]["name"] ?></h2></a>
-				</div>
-				<div class="col-md-6 col-sm-12 col-xs-12 shopCat2">
-					<a href="merch.html"><h2 class="name musicCats">
+		<div class="container noAbsolute">
 <?php
-					foreach ($subcategories as $subcategory) {
-						echo "<a href='products.php?subcategory_id=".$subcategory["category_id"]."' class='musicCat'>".$subcategory["name"]."</a><br>";
-					}
-?>
-					</h2></a>
+	foreach ($products as $product) {
+		echo "<div class='row rela'>
+				<div class='col-md-7 col-sm-12 col-xs-12'><img class='vin john' src='img/john1.png'></div>
+				<div class='col-md-5 col-sm-12 col-xs-12 vinylText relaa'>
+					<h2>".$product["item"]."<br>
+					<a href=artists.php?artist_id=".$product["artist_id"]."><span class='vinylText'>".$product["name"]."</span></h2><br></a>
+					<h3>".$product["description"]."</h3><br>
+					<br>
+						<button class='price price1'>$".$product["price"]."</button>
 				</div>
+			</div>";
+	}
+?>
 			</div>
 		</div>
 	</main>
