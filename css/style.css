@@ -485,6 +485,21 @@ font-size: 32px;
 	background-color: #FE5724;
 }
 
+.pricepd{
+	color: black;
+	background-color: white;
+	border: black 1px solid;
+	height: 40px;
+	width: 70px;
+	margin-top: 20px;
+}
+
+.pricepd:hover{
+	border: white;
+	color: white;
+	background-color: #FE5724;
+}
+
 .evento{
 	text-align: center;
 	left: 50%;

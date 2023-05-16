@@ -2,9 +2,9 @@
 	require("includes/config.php");
 
 	$query = $db->prepare("
-		SELECT events.local, events.event_date, events.mode, events.link, artists.name
+		SELECT events.local, events.event_date, events.mode, events.link, artists.name, artists.artist_id
 		FROM events
-        INNER JOIN artists USING (artist_id)
+        LEFT JOIN artists USING (artist_id)
 		");
 
 	$query->execute();
@@ -32,7 +32,7 @@
 			<?php
 				foreach($events as $event){
 					echo "<div class='row evento space'>
-						<span class='events'><span class='artista'>".$event["name"]."</span><br> 
+						<span class='events'><a href='artist.php?artist_id=".$event["artist_id"]."'><span class='artista'>".$event["name"]."</span></a><br> 
 						
 						".date("d F Y",strtotime($event["event_date"]))."<br>
 						".$event["mode"]."<br>

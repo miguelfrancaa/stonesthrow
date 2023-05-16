@@ -2,19 +2,18 @@
 	require("includes/config.php");
 
 	$query = $db->prepare("
-		SELECT item, description, image
+		SELECT products.product_id, products.item, products.type, products.description, products.image, products.image2, products.price, products.tracklist, artists.name, artists.artist_id
 		FROM products
-		WHERE category_id = ?
+		LEFT JOIN artists USING (artist_id)
+		WHERE product_id = ?
 		");
 
-	$query->execute(
-		$_GET['subcategory_id']
-	);
+	$query->execute([
+		$_GET['product_id']
+	]);
 
-	$products = $query->fetchAll( PDO::FETCH_ASSOC);
-
-	echo "<pre>";
-	print_r($products)
+	$product = $query->fetch( PDO::FETCH_ASSOC);
+	
 
 ?>
 <!DOCTYPE html>
@@ -35,28 +34,25 @@
 ?>
 	<main>
 		<div class="container noAbsolute">
-<?php
-	foreach ($products as $product) {
-		echo "<div class='row rela'>
-				<div class='col-md-7 col-sm-12 col-xs-12'><img class='vin john' src='img/john1.png'></div>
-				<div class='col-md-5 col-sm-12 col-xs-12 vinylText relaa'>
-					<h2>Conflict<br>
-					<span class='vinylText'>John Carroll Kirby</span></h2><br>
-					<h3>Conflict is a collection of piano-based pieces that was spontaneously released April 2, 2020, in response to the escalating global crisis. The album is now on vinyl – 1LP with digital download.</h3><br>
-					<br>
-						<button class='price price1'>$19.50</button>
+			<div class="row">
+				<div class="col-md-4 col-sm-12 col-xs-12">
+					<img src="img/products/<?= $product["image"] ?>">
+					<div><button class='pricepd'>$20.00</button></div>
 				</div>
-			</div>";
-	}
-?>
+				<div class="col-md-8 col-sm-12 col-xs-12">
+					<h2><div><?= $product["item"] ?></div><br>
+					<div class="vinylText"><?= $product["name"] ?></div></h2><br>
+					<div style="font-size: 17px;"><?= $product["type"] ?></div><br><br>
+					<div><?= $product["description"] ?></div><br>
+					<div>TRACKLIST</div>
+
+				</div>
 			</div>
 		</div>
 	</main>
 
-	<?php
-	require("includes/footer.php");
-	?>
 
+	
 
 
 	<script src="js/jquery-3.6.0.min.js"></script>

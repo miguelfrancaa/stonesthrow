@@ -26,7 +26,7 @@
 			<input class="formInputs formInput1" type="text" name="username" required><br><br><br>
 			<label class="formLabels formLabel2" for="password">PASSWORD</label><br>
 			<input class="formInputs formInput2" type="password" name="password" required><br><br><br>
-			<div class="buttonForm"><button type="submit">SIGN IN</button><a href="register.html">CREATE ACCOUNT</a></div>
+			<div class="buttonForm"><button type="submit">SIGN IN</button><a href="register.php">CREATE ACCOUNT</a></div>
 		</form>
 		</div>
 		</div>

@@ -9,7 +9,7 @@
 	}
 
 	$query = $db->prepare("
-		SELECT products.item, products.description, products.image, products.price, artists.name, artists.artist_id
+		SELECT products.product_id, products.type, products.item, products.description, products.image, products.price, artists.name, artists.artist_id
 		FROM products
 		LEFT JOIN artists USING (artist_id)
 		WHERE category_id = ?
@@ -48,16 +48,17 @@
 		<div class="container noAbsolute">
 <?php
 	foreach ($products as $product) {
-		echo "<div class='row rela'>
+		echo "<a href='productdetails.php?product_id=".$product["product_id"]."'><div class='row rela'>
 				<div class='col-md-7 col-sm-12 col-xs-12'><img class='vin john' src='img/john1.png'></div>
 				<div class='col-md-5 col-sm-12 col-xs-12 vinylText relaa'>
 					<h2>".$product["item"]."<br>
-					<a href=artists.php?artist_id=".$product["artist_id"]."><span class='vinylText'>".$product["name"]."</span></h2><br></a>
+					<a href=artists.php?artist_id=".$product["artist_id"]."><span class='vinylText'>".$product["name"]."</span></h2></a>
+					<div style='font-size: 17px'>".$product["type"]."</div><br>
 					<h3>".$product["description"]."</h3><br>
 					<br>
 						<button class='price price1'>$".$product["price"]."</button>
 				</div>
-			</div>";
+			</div></a>";
 	}
 ?>
 			</div>
