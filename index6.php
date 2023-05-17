@@ -40,9 +40,7 @@
 				</div>
 				<div class="col-md-8 newsMenuText">
 					<h2 class="titleNewsMenu">'.$new["title"].'</h2>
-					<p class="titleNewsText">“Low-key R&B legend” Eddie Chacon’s first album with Stones Throw, Sundown, is out now. Twelve new songs, produced by and written with John Carroll Kirby.
-
-					Eddie’s story is by now well known: after achieving stratospheric success as one half of the duo Charles & Eddie, whose hit “Would I Lie To You” topped charts...</p>
+					<p class="titleNewsText">'.substr($new["content"], 0, 400).'...</p>
 					<p class="readMore"><a class="ReadMoreA" href="">Read More</a><br></p>
 					<time datetime="'.$new["created_at"].'"><div class="dateNewMenu">
 					'.date("F d,\&\\n\b\s\p\ Y", strtotime($new["created_at"])).'</div>

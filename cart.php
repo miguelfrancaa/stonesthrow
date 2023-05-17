@@ -1,5 +1,7 @@
 <?php
 	require("includes/config.php");
+
+	print_r($_POST);
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,10 +51,6 @@
 		</div>
 
 	</main>
-
-	<?php
-	require("includes/footer.php");
-	?>
 
 
 	<script src="js/jquery-3.6.0.min.js"></script>

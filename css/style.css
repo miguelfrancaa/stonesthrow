@@ -491,18 +491,90 @@ font-size: 32px;
 }
 
 .pricepd{
+	position: relative;
 	color: black;
 	background-color: white;
 	border: black 1px solid;
 	height: 40px;
 	width: 70px;
 	margin-top: 20px;
+	font-size: 15px;
+}
+
+.cen{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .pricepd:hover{
 	border: white;
 	color: white;
 	background-color: #FE5724;
+}
+
+input[type=number] {
+  float: left;
+  width: 50px;
+  height: 35px;
+  padding: 0;
+  font-size: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  color: black;
+  border: 1px black solid;
+  background: none;
+  outline: none;
+  pointer-events: none;
+}
+
+span.spinner {
+  position: absolute;
+  height: 40px;
+  user-select: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+span.spinner > .sub,
+span.spinner > .add {
+  float: left;
+  display: block;
+  width: 35px;
+  height: 35px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 33px;
+  color: black;
+  border: 1px black solid;
+  border-right: 0;
+  border-radius: 2px 0 0 2px;
+  cursor: pointer;
+  transition: 0.1s linear;
+  -o-transition: 0.1s linear;
+  -ms-transition: 0.1s linear;
+  -moz-transition: 0.1s linear;
+  -webkit-transition: 0.1s linear;
+}
+
+span.spinner > .add {
+  top: 0;
+  border: 1px black solid;
+  border-left: 0;
+  border-radius: 0 2px 2px 0;
+}
+
+span.spinner > .sub:hover,
+span.spinner > .add:hover {
+  background: #FE5724;
+  color: white;
+}
+ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+ -webkit-appearance: none;
 }
 
 .evento{
