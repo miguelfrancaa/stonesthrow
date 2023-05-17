@@ -42,9 +42,9 @@
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<h2><div><?= $product["item"] ?></div><br>
 					<div class="vinylText"><?= $product["name"] ?></div></h2><br>
-					<div style="font-size: 17px;"><?= $product["type"] ?></div><br><br>
-					<div><?= $product["description"] ?></div><br>
-					<div>TRACKLIST</div>
+					<div style="font-size: 17px; color: #FE5724;"><?= $product["type"] ?></div><br><br>
+					<div class="productDescription"><?= nl2br($product["description"]) ?></div><br><br>
+					<div class="tracklist"><?= nl2br($product["tracklist"]) ?></div>
 
 				</div>
 			</div>

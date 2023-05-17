@@ -788,6 +788,16 @@ font-size: 32px;
   overflow: hidden;
 }
 
+.productDescription{
+	font-weight: 100;
+	font-size: 20px;
+}
+
+.tracklist{
+	font-weight: 100;
+	font-size: 15px;
+}
+
 /* <= 1440 HD Ready */
 @media screen and (max-width:1440px){}
 @media screen and (max-width:1200px){
