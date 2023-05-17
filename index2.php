@@ -51,7 +51,7 @@
 	<main>
 		<ul class="artistsList">
 <?php foreach ($artists as $artist) {
-				echo'<li class="artists fundo '.strtolower(trim(str_replace(" ", "", $artist["name"]))).'"><a href="artist.php?artistid='.$artist["artist_id"].'">'.$artist["name"].'</a></li><br><br><br><br><br><br>';
+				echo'<li class="artists fundo '.strtolower(trim(str_replace(" ", "", $artist["name"]))).'"><a href="artistdetails.php?artist_id='.$artist["artist_id"].'">'.$artist["name"].'</a></li><br><br><br><br><br><br>';
 			};
 ?>
 		</ul>

@@ -50,6 +50,11 @@ ul{
 	color: #FE5724;
 }
 
+.artistTitle{
+	color: #FE5724;
+	font-size: 60px;
+}
+
 .artists a{
 	color: black;
 }

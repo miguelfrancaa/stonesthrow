@@ -2,14 +2,18 @@
 	require("includes/config.php");
 
 	$query = $db->prepare("
-		SELECT events.local, events.event_date, events.mode, events.link, artists.name, artists.artist_id
-		FROM events
-        LEFT JOIN artists USING (artist_id)
+		SELECT name, description, description_photo
+		FROM artists
+		WHERE artist_id = ?
 		");
 
-	$query->execute();
+	$query->execute([
+		$_GET['artist_id']
+	]);
 
-	$events = $query->fetchAll( PDO::FETCH_ASSOC);
+	$artist = $query->fetch( PDO::FETCH_ASSOC);
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,19 +32,13 @@
 	require("includes/header.php");
 ?>
 	<main>
-		<div class="container noAbsolute2">
-			<?php
-				foreach($events as $event){
-					echo "<div class='row evento space'>
-						<span class='events'><a href='artistdetails.php?artist_id=".$event["artist_id"]."'><span class='artista'>".$event["name"]."</span></a><br> 
-						
-						".date("d F Y",strtotime($event["event_date"]))."<br>
-						".$event["mode"]."<br>
-						".$event["local"]."<br></span>
-						<a target=_blank href=".$event["link"]."><button class='evento eventDetails'>DETAILS</button></a>
-						</div>";
-				}
-			?>
+		
+		<div class="container noAbsolute">
+			<div><h1 class="artistTitle"><?= $artist["name"] ?></h1></div><br><br>
+			<div class="row">
+				<div class="col-md-6 imgEsq"><img src="img/artists/<?= $artist["description_photo"] ?>"></div>
+				<div class="col-md-6 textEsq"><?= $artist["description"] ?></div>
+			</div>
 		</div>
 	</main>
 
