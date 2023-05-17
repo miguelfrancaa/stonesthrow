@@ -2,7 +2,7 @@
 	require("includes/config.php");
 
 	$query = $db->prepare("
-		SELECT products.product_id, products.item, products.type, products.description, products.image, products.image2, products.price, products.tracklist, artists.name, artists.artist_id
+		SELECT products.product_id, products.item, products.type, products.description, products.image, products.image2, products.price, products.tracklist, products.stock, artists.name, artists.artist_id
 		FROM products
 		LEFT JOIN artists USING (artist_id)
 		WHERE product_id = ?
@@ -40,7 +40,7 @@
 					<form method="post" action="cart.php">
 						<div class='pricepd'><div class="cen">$<?= $product["price"] ?></div></div><br><br>
 							<input type="hidden" name="product_id" value="<?= $product["product_id"] ?>">
-							<input name="quantity" type="number" min="1" max="99" value="1" required/><br><br><br>			
+							<input name="quantity" type="number" min="1" max="<?= $product["stock"] ?>" value="1" required/><br><br><br>			
 							<button class="pricepd" type="submit" name="send">BUY</button>
 					</form>
 				</div>

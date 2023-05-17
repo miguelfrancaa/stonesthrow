@@ -1,7 +1,46 @@
 <?php
 	require("includes/config.php");
 
-	print_r($_POST);
+	//unset($_SESSION["cart"]);
+
+	if(
+		isset($_POST["product_id"]) &&
+		isset($_POST["quantity"]) &&
+		is_numeric($_POST["quantity"]) &&
+		intval($_POST["quantity"]) > 0
+	) {
+
+		$quantity = intval($_POST["quantity"]);
+
+		$query = $db->prepare("
+			SELECT product_id, stock, item, price, type, image
+			FROM products
+			WHERE product_id = ?
+				AND stock >= ?
+
+			");
+
+		$query->execute([
+			$_POST["product_id"],
+			$quantity
+		]);
+
+		$product = $query->fetch();
+
+		if (!empty($product))  {
+
+		$_SESSION["cart"][$product["product_id"]] = [
+			"product_id" => $product["product_id"],
+			"quantity" => $quantity,
+			"item" => $product["item"],
+			"price" => $product["price"],
+			"stock" => $product["stock"],
+			"type" => $product["type"],
+			"image" => $product["image"]
+		];
+		}
+	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +59,10 @@
 	require("includes/header.php");
 ?>
 	<main>
-		<div class="container containerCart">
+<?php
+	if(!empty($_SESSION["cart"])){
+?>
+	<div class="container containerCart">
 		<table class="cartTable">
 			<tr class="lineBase">
 				<th colspan="2">ITEM</th>
@@ -28,13 +70,19 @@
 				<th>QUANTITY</th>
 				<th>PRICE</th>
 			</tr>
-			<tr class="lineProduct">
-				<td><img style="position: relative; height: 150px;" src="img/products/sstee.jpeg"></td>
-				<td>STONESTHROW SS TEE</td>
-				<td>T-SHIRT / S</td>
-				<td><button class="fa fa-minus maismenos"></button> 1 <button class="fa fa-plus maismenos"></button></td>
-				<td>$30.00</td>
-			</tr>
+<?php
+	foreach ($_SESSION["cart"] as $item) {
+		$subtotal = $item["price"] * $item["quantity"];
+
+		echo '<tr class="lineProduct">
+				<td><img style="position: relative; height: 150px;" src="img/products/'.$item["image"].'"></td>
+				<td>'.$item["item"].'</td>
+				<td>'.$item["type"].'</td>
+				<td><button class="fa fa-minus maismenos"></button> '.$item["quantity"].' <button class="fa fa-plus maismenos"></button></td>
+				<td>$'.$subtotal.'</td>
+			</tr>';
+	}
+?>
 			<tr>
 				<td colspan="4" style="font-weight: 100;">Subtotal</td>
 				<td>30.00$</td>
@@ -49,7 +97,11 @@
 		<button class="checkout" type="submit"><a>CHECKOUT</a></div></button>
 		</div>
 		</div>
-
+<?php
+	}else{
+		echo "<p>Carrinho Vazio</p>";
+	}
+?>
 	</main>
 
 
