@@ -13,8 +13,9 @@
 		$quantity = intval($_POST["quantity"]);
 
 		$query = $db->prepare("
-			SELECT product_id, stock, item, price, type, image
+			SELECT products.product_id, products.stock, products.item, products.price, products.type, products.image, artists.name
 			FROM products
+			LEFT JOIN artists USING (artist_id)
 			WHERE product_id = ?
 				AND stock >= ?
 
@@ -36,7 +37,8 @@
 			"price" => $product["price"],
 			"stock" => $product["stock"],
 			"type" => $product["type"],
-			"image" => $product["image"]
+			"image" => $product["image"],
+			"name" => $product["name"]
 		];
 		}
 	}
@@ -71,30 +73,37 @@
 				<th>PRICE</th>
 			</tr>
 <?php
+	$total= 0;
 	foreach ($_SESSION["cart"] as $item) {
+		if (isset($item["name"])) {
+				$space = ' - ';
+			}else{
+				$space = '';
+			}
+
+
 		$subtotal = $item["price"] * $item["quantity"];
+
+		$total += $subtotal;
 
 		echo '<tr class="lineProduct">
 				<td><img style="position: relative; height: 150px;" src="img/products/'.$item["image"].'"></td>
-				<td>'.$item["item"].'</td>
+				<td>'.$item["name"].''.$space.''.$item["item"].'</td>
 				<td>'.$item["type"].'</td>
 				<td><button class="fa fa-minus maismenos"></button> '.$item["quantity"].' <button class="fa fa-plus maismenos"></button></td>
 				<td>$'.$subtotal.'</td>
 			</tr>';
+
 	}
 ?>
 			<tr>
-				<td colspan="4" style="font-weight: 100;">Subtotal</td>
-				<td>30.00$</td>
-			</tr>
-			<tr>
 				<td colspan="4" style="font-weight: 100;">Total</td>
-				<td>30.00$</td>
+				<td>$<?= $total ?></td>
 			</tr>
 		</table>
 		<div class="buttonsMenu">
 		<button class="update" type="button"><a>UPDATE CART</a><div class="fa fa-refresh ref"></button>
-		<button class="checkout" type="submit"><a>CHECKOUT</a></div></button>
+		<button class="checkout" type="submit"><a href="checkout.php">CHECKOUT</a></div></button>
 		</div>
 		</div>
 <?php

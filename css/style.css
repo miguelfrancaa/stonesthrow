@@ -674,6 +674,15 @@ span.spinner > .add:hover {
 .logForms{
 	background-color: transparent;
 	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 50%;
+}
+
+.logFormsLogin{
+	background-color: transparent;
+	position: absolute;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
